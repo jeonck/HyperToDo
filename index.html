@@ -3,32 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyper Todo App</title>
+    <title>HyperToDo - 산뜻한 할 일 관리</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#7F9CF5">
 </head>
 <body>
-    <!-- Hyper 구현 - 단순한 마크업 구조 -->
-    <h1>Hyper Todo 앱</h1>
-    
-    <div class="app-container">
-        <div class="input-group">
-            <input type="text" id="todo-input" placeholder="할 일을 입력하세요..." />
-            <button id="add-btn">추가</button>
+    <div class="container">
+        <h1>HyperToDo</h1>
+        
+        <div class="app-container">
+            <div class="input-group">
+                <input type="text" id="todo-input" placeholder="✨ 새로운 할 일을 입력하세요..." />
+                <button id="add-btn">
+                    <i class="fas fa-plus-circle"></i> 추가하기
+                </button>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i> 모든 항목
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    <i class="fas fa-spinner"></i> 진행 중
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <i class="fas fa-check-circle"></i> 완료됨
+                </button>
+            </div>
+
+            <ul class="todo-list" id="todo-list">
+                <!-- 할 일 항목이 여기에 동적으로 추가됩니다 -->
+            </ul>
+
+            <div class="stats">
+                <p>
+                    <i class="fas fa-chart-simple"></i> 완료: <span id="completed-count">0</span> / 전체: <span id="total-count">0</span>
+                </p>
+            </div>
         </div>
 
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">전체</button>
-            <button class="filter-btn" data-filter="active">미완료</button>
-            <button class="filter-btn" data-filter="completed">완료</button>
-        </div>
-
-        <ul class="todo-list" id="todo-list">
-            <!-- 할 일 항목이 여기에 동적으로 추가됩니다 -->
-        </ul>
-
-        <div class="stats">
-            <p>완료: <span id="completed-count">0</span> / 전체: <span id="total-count">0</span></p>
-        </div>
+        <footer>
+            <p>Made with <i class="fas fa-heart"></i> using Hyper</p>
+        </footer>
     </div>
 
     <script src="app.js"></script>
