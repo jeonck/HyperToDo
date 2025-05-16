@@ -63,6 +63,15 @@ export const Events = {
         }
     },
     
+    // 할 일 수정 핸들러
+    handleEditTodo(id, newText) {
+        if (this.todoList.editTodo(id, newText, this.storage)) {
+            this.effects.sounds.play('edit');
+            this.ui.showToast('할 일이 수정되었습니다.');
+            this.app.render();
+        }
+    },
+    
     // 할 일 완료 상태 토글 핸들러
     handleToggleTodo(id) {
         const isCompleted = this.todoList.toggleTodo(id, this.storage);

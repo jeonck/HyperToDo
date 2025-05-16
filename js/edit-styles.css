@@ -1,0 +1,113 @@
+/* 수정 기능 스타일 */
+
+/* todo 아이템 레이아웃 수정 */
+.todo-text-container {
+    flex: 1;
+    margin-left: 15px;
+    position: relative;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* 수정 버튼 스타일 */
+.edit-btn {
+    background-color: var(--gray-50);
+    color: var(--gray-500);
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(127, 156, 245, 0.2);
+}
+
+/* 편집 모드 스타일 */
+.todo-item.editing {
+    background-color: var(--gray-50);
+    box-shadow: var(--shadow-md);
+}
+
+.edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid var(--primary-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 16px;
+    font-family: var(--font-sans);
+    background-color: white;
+    color: var(--gray-800);
+    box-shadow: 0 0 0 2px rgba(127, 156, 245, 0.1);
+}
+
+.edit-input:focus {
+    outline: none;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.confirm-edit-btn, .cancel-edit-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-edit-btn {
+    background-color: var(--success-color);
+}
+
+.confirm-edit-btn:hover {
+    background-color: #4aca9b;
+}
+
+.cancel-edit-btn {
+    background-color: var(--gray-400);
+}
+
+.cancel-edit-btn:hover {
+    background-color: var(--danger-color);
+}
+
+/* 토스트 메시지 스타일 */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 12px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1000;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

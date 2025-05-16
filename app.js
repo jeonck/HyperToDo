@@ -36,7 +36,8 @@ const App = {
             filteredTodos, 
             currentFilter,
             (id) => Events.handleToggleTodo(id),
-            (id) => Events.handleDeleteTodo(id)
+            (id) => Events.handleDeleteTodo(id),
+            (id, newText) => Events.handleEditTodo(id, newText)
         );
         
         UI.updateStats(TodoList.getAllTodos());

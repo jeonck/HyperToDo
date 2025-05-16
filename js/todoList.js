@@ -38,6 +38,24 @@ export const TodoList = {
         return true;
     },
     
+    // 할 일 수정
+    editTodo(id, newText, storage) {
+        if (!newText.trim()) return false;
+        
+        this.todos = this.todos.map(todo => {
+            if (todo.id !== id) return todo;
+            
+            return { 
+                ...todo, 
+                text: newText.trim(),
+                updatedAt: new Date().toISOString()
+            };
+        });
+        
+        storage.saveTodos(this.todos);
+        return true;
+    },
+    
     // 할 일 완료 상태 토글
     toggleTodo(id, storage) {
         let wasCompleted = false;
@@ -75,6 +93,11 @@ export const TodoList = {
     // 모든 할 일이 완료되었는지 확인
     isAllCompleted() {
         return this.todos.length > 0 && this.todos.every(todo => todo.completed);
+    },
+    
+    // ID로 할 일 찾기
+    getTodoById(id) {
+        return this.todos.find(todo => todo.id === id) || null;
     },
     
     // 현재 필터 가져오기
